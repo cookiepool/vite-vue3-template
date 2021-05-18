@@ -42,14 +42,12 @@ Vite + Vue@3全家桶 + Sass + ESLint With Prettier + lint-staged With husky
   }
   ```
   > endOfLine的官方文档的解释：[链接地址](https://prettier.io/docs/en/options.html#end-of-line)
+
   > trailingComma：[链接地址](https://prettier.io/docs/en/options.html#trailing-commas)
 
   VSCode设置里面加入保存文件时自动修复
   ```
-  // 保存代码时自动修复（ESLint）
-   "editor.codeActionsOnSave": {
-     "source.fixAll": true
-   },
+  "editor.codeActionsOnSave": {"source.fixAll": true}
   ```
   
 - lint-staged + husky
