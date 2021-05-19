@@ -31,7 +31,12 @@
     <div>
       <i class="el-icon-edit"></i>
       <el-button type="primary" @click="openMsgBox">饿了么按钮</el-button>
+      <el-button type="primary" @click="jumpPage">跳转</el-button>
     </div>
+    <hr />
+    <h2>store测试</h2>
+    <p>{{ roleName }}</p>
+    <el-button type="primary" @click="modifyRoleName">修改角色</el-button>
   </div>
 </template>
 
@@ -50,6 +55,15 @@ import {
   nextTick
 } from 'vue';
 
+import {
+  useRoute,
+  useRouter,
+  onBeforeRouteLeave,
+  onBeforeRouteUpdate
+} from 'vue-router';
+
+import { useStore } from 'vuex';
+
 import ChildTest from '../components/ChildTest.vue';
 
 export default defineComponent({
@@ -58,8 +72,8 @@ export default defineComponent({
     ChildTest
   },
   setup(props, context) {
-    console.log(props);
-    console.log(context);
+    // console.log(props);
+    // console.log(context);
 
     // getCurrentInstance https://vue3js.cn/docs/zh/api/composition-api.html#getcurrentinstance
     let curInstance = getCurrentInstance();
@@ -67,7 +81,21 @@ export default defineComponent({
       curInstance.appContext.config.globalProperties;
 
     console.log(curInstance);
-    console.log($route, $router, $store);
+    // console.log($route, $router, $store);
+
+    // useRoute useRouter onBeforeRouteLeave onBeforeRouteUpdate
+    const route = useRoute();
+    const router = useRouter();
+
+    // useStore
+    const store = useStore();
+
+    onBeforeRouteUpdate((to, from) => {
+      alert('get in');
+    });
+    onBeforeRouteLeave((to, from) => {
+      alert('leave out');
+    });
 
     // $refs https://vue3js.cn/docs/zh/guide/composition-api-template-refs.html#%E6%A8%A1%E6%9D%BF%E5%BC%95%E7%94%A8
     const testRefs = ref(null);
@@ -134,6 +162,17 @@ export default defineComponent({
         message: '这是一条消息提示'
       });
     };
+    const jumpPage = () => {
+      router.push({
+        path: '/about',
+        query: {
+          id: 1223
+        }
+      });
+    };
+    const modifyRoleName = () => {
+      store.commit('MODIFY_ROLE_NAME', 'stuff');
+    };
 
     return {
       count,
@@ -141,10 +180,13 @@ export default defineComponent({
       obj,
       testRefs,
       computedData,
+      roleName: computed(() => store.state.roleName),
       modifyCount,
       modifyList,
       modifyAge,
-      openMsgBox
+      openMsgBox,
+      jumpPage,
+      modifyRoleName
     };
   }
 });
