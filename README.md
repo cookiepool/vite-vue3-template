@@ -1,5 +1,5 @@
-# 工具特性
-Vite + Vue@3全家桶 + Sass + ESLint With Prettier + lint-staged With husky
+# vite-vue3-template
+Vite + Vue@3全家桶 + Element-Plus + Sass + ESLint With Prettier + lint-staged With husky
 
 > 各个工具的版本号见package.json
 
@@ -10,6 +10,11 @@ Vite + Vue@3全家桶 + Sass + ESLint With Prettier + lint-staged With husky
   - [vue-next](https://github.com/vuejs/vue-next)
   - [vue-router-next](https://github.com/vuejs/vue-router-next)
   - [vuex@4.x](https://github.com/vuejs/vuex/tree/4.0)
+
+- Element-Plus
+  - [element-plus](https://element-plus.gitee.io/#/zh-CN/)
+  
+  > 注：element-plus采用按需引入的方式。[配置参考](https://element-plus.gitee.io/#/zh-CN/component/quickstart)
 
 - Sass(Scss)
   vite内部对sass做了处理，我们直接安装sass依赖即可使用

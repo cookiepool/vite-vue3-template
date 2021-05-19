@@ -10,6 +10,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "element-plus": "^1.0.2-beta.44",
     "vue": "^3.0.5",
     "vue-router": "^4.0.8",
     "vuex": "^4.0.0"
@@ -25,7 +26,8 @@
     "lint-staged": "^11.0.0",
     "prettier": "2.3.0",
     "sass": "^1.32.13",
-    "vite": "^2.2.3"
+    "vite": "^2.2.3",
+    "vite-plugin-style-import": "^0.10.0"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint --cache --fix"
