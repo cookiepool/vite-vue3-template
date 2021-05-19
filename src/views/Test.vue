@@ -26,6 +26,12 @@
     <hr />
     <p>computed && watch</p>
     <p>computed结果数据：{{ computedData }}</p>
+    <hr />
+    <h2>饿了么组件测试</h2>
+    <div>
+      <i class="el-icon-edit"></i>
+      <el-button type="primary" @click="openMsgBox">饿了么按钮</el-button>
+    </div>
   </div>
 </template>
 
@@ -39,7 +45,9 @@ import {
   onMounted,
   computed,
   watch,
-  watchEffect
+  watchEffect,
+  getCurrentInstance,
+  nextTick
 } from 'vue';
 
 import ChildTest from '../components/ChildTest.vue';
@@ -52,6 +60,15 @@ export default defineComponent({
   setup(props, context) {
     console.log(props);
     console.log(context);
+
+    // getCurrentInstance https://vue3js.cn/docs/zh/api/composition-api.html#getcurrentinstance
+    let curInstance = getCurrentInstance();
+    let { $msgbox, $message, $messageBox, $notify, $route, $router, $store } =
+      curInstance.appContext.config.globalProperties;
+
+    console.log(curInstance);
+    console.log($route, $router, $store);
+
     // $refs https://vue3js.cn/docs/zh/guide/composition-api-template-refs.html#%E6%A8%A1%E6%9D%BF%E5%BC%95%E7%94%A8
     const testRefs = ref(null);
 
@@ -98,6 +115,25 @@ export default defineComponent({
       toRefData.value++;
       toRefsData.height.value++;
     };
+    const openMsgBox = () => {
+      // $message('这是一条消息提示');
+      // $message({
+      //   message: '这是一条消息提示！',
+      //   type: 'success'
+      // });
+      // $message.success('这是一条消息提示！');
+
+      // $messageBox({
+      //   title: '测试',
+      //   message: '这是一条消息提示！',
+      //   type: 'success'
+      // });
+
+      $notify({
+        title: '提示',
+        message: '这是一条消息提示'
+      });
+    };
 
     return {
       count,
@@ -107,7 +143,8 @@ export default defineComponent({
       computedData,
       modifyCount,
       modifyList,
-      modifyAge
+      modifyAge,
+      openMsgBox
     };
   }
 });
