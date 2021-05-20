@@ -2,7 +2,7 @@
   "name": "vite-vue3-template",
   "version": "1.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "serve": "vite preview",
     "lint": "eslint --ext .js,.vue src",
@@ -26,7 +26,7 @@
     "lint-staged": "^11.0.0",
     "prettier": "2.3.0",
     "sass": "^1.32.13",
-    "vite": "^2.2.3",
+    "vite": "^2.3.3",
     "vite-plugin-style-import": "^0.10.0"
   },
   "lint-staged": {
