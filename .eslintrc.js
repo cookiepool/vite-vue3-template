@@ -4,7 +4,7 @@ module.exports = {
     node: true
   },
   plugins: ['vue', 'prettier'],
-  extends: ['plugin:vue/vue3-recommended', 'prettier'],
+  extends: ['plugin:vue/vue3-recommended', 'plugin:prettier/recommended'],
   parserOptions: {
     ecmaVersion: 2020
   },
