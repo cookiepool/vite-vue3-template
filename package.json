@@ -6,8 +6,7 @@
     "build": "vite build",
     "serve": "vite preview",
     "lint": "eslint --ext .js,.vue src",
-    "lint:fix": "eslint --fix --ext .js,.vue src",
-    "prepare": "husky install"
+    "lint:fix": "eslint --fix --ext .js,.vue src"
   },
   "dependencies": {
     "element-plus": "^1.0.2-beta.44",
@@ -22,14 +21,19 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-vue": "^7.9.0",
-    "husky": "^6.0.0",
-    "lint-staged": "^11.0.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^9.5.0",
     "prettier": "2.3.0",
     "sass": "^1.32.13",
     "vite": "^2.3.3",
     "vite-plugin-style-import": "^0.10.0"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
-    "*.{js,vue}": "eslint"
+    "*.{js,jsx,vue}": "eslint"
   }
 }
