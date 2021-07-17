@@ -2,7 +2,8 @@
   <div class="test-wraper">
     <h2>测试页面</h2>
     <hr />
-    <img src="/public/favicon.ico" alt="" />
+    <!-- vite自动处理了public文件夹，可以不用写public -->
+    <img src="favicon.ico" alt="" />
     <hr />
     <div class="bg-box"></div>
     <hr />
@@ -202,7 +203,7 @@ export default defineComponent({
     width: 200px;
     height: 200px;
     // background-image: url('../assets/logo.png');
-    background-image: url('public/favicon.ico');
+    background-image: url('favicon.ico');
   }
 }
 </style>
