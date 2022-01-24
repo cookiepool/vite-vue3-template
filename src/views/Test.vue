@@ -2,8 +2,8 @@
   <div class="test-wraper">
     <h2>测试页面</h2>
     <hr />
-    <!-- vite自动处理了public文件夹，可以不用写public -->
-    <img src="favicon.ico" alt="" />
+    <!-- vite自动处理了public文件夹，可以不用写public，要写斜杠，否则build时会报错 -->
+    <img src="/favicon.ico" alt="" />
     <hr />
     <div class="bg-box"></div>
     <hr />
@@ -68,7 +68,7 @@ import { useStore } from 'vuex';
 import ChildTest from '../components/ChildTest.vue';
 
 export default defineComponent({
-  name: 'Test',
+  name: 'TestCom',
   components: {
     ChildTest
   },
@@ -158,9 +158,10 @@ export default defineComponent({
       //   type: 'success'
       // });
 
-      $notify({
+      ElNotification({
         title: '提示',
-        message: '这是一条消息提示'
+        message: '这是一条不会自动关闭的消息',
+        duration: 0
       });
     };
     const jumpPage = () => {
