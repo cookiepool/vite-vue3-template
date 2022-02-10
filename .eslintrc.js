@@ -3,6 +3,9 @@ module.exports = {
   env: {
     node: true
   },
+  globals: {
+    ElNotification: 'readonly'
+  },
   plugins: ['vue', 'prettier'],
   extends: [
     'eslint:recommended',
