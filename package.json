@@ -9,7 +9,7 @@
     "lint:fix": "eslint --fix --ext .js,.vue src"
   },
   "dependencies": {
-    "element-plus": "^1.3.0-beta.7",
+    "element-plus": "^2.0.1",
     "vue": "^3.2.29",
     "vue-router": "^4.0.12",
     "vuex": "^4.0.2"
